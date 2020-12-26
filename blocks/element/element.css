@@ -1,0 +1,9 @@
+.element {
+    display: flex;
+    flex-direction: column;
+    max-width: 282px;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 10px;
+}

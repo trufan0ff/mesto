@@ -1,0 +1,16 @@
+.body {
+    background: #000;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 880px) {
+    .body {
+        max-width: 580px;
+    }
+}
+
+@media screen and (max-width: 579px) {
+    .body {
+        max-width: 320px;
+    }
+}

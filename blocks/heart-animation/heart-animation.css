@@ -1,0 +1,8 @@
+.heart-animation {
+    opacity: 1;
+  }
+
+.heart-animation:hover {
+  transition: heart-animation 10s linear forwards;
+  opacity: 0.5;
+}

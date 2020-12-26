@@ -1,0 +1,10 @@
+.link-animation {
+    opacity: 1;
+  }
+
+.link-animation:hover {
+  transition: link-animation 10s linear forwards;
+  opacity: 0.6;
+}
+
+

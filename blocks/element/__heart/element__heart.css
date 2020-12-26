@@ -1,0 +1,8 @@
+.element__heart {
+    background-image: url("../../../images/heart.svg");
+    width: 20.76px;
+    height: 18.13px;
+    margin: 0;
+    cursor: pointer;
+    overflow: hidden;
+}

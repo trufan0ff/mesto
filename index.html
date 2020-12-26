@@ -2,26 +2,113 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="./pages/index.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./pages/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
 </head>
 
-  <body class="body">
+<body class="body">
     <div class="page">
         <header class="header">
-              <a href="#" target="_blank" class="header__logo-link link-animation"><img src="./images/Vector.svg" alt="Логотип" class="header__logo"></a>
+            <a href="#" target="_blank" class="header__logo-link link-animation"><img src="./images/Vector.svg" alt="Логотип" class="header__logo"></a>
         </header>
 
         <section class="profile">
-            <img class="avatar" src="./images/avatar.png">
+            <img src="./images/zspv3skF7z0.jpg" class="profile__avatar" alt="Аватар">
+            <div class="profile__group">
+                <div class="profile__info">
+                    <div class="profile__edit">
+                        <h2 class="profile__title">Труфанов Виктор</h2>
+                        <button class="profile__edit-button" type="button"></button>
+                    </div>
+                    <p class="profile__subtitle">Студент Яндекс.Практикум</p>
+                </div>
+                <div class="profile__add-button"></div>
+            </div>
+        </section>
+
+        <section class="elements">
+
+            <div class="element">
+                <img src="./images/guamka.jpg" class="element__image" alt="Гуамское ущелье">
+                <div class="element__group">
+                    <div class="element__like">
+                        <h2 class="element__title link-animation">Гуамское ущелье</h2>
+                        <div class="element__heart heart-animation"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element">
+                <img src="./images/arhiz.jpg" class="element__image" alt="Архыз">
+                <div class="element__group">
+                    <div class="element__like">
+                        <h2 class="element__title link-animation">Архыз</h2>
+                        <div class="element__heart heart-animation"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element">
+                <img src="./images/dombai.jpg" class="element__image" alt="Домбай">
+                <div class="element__group">
+                    <div class="element__like">
+                        <h2 class="element__title link-animation">Домбай</h2>
+                        <div class="element__heart heart-animation"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element">
+                <img src="./images/krasnodar.jpg" class="element__image" alt="Краснодар">
+                <div class="element__group">
+                    <div class="element__like">
+                        <h2 class="element__title link-animation">Парк Краснодар</h2>
+                        <div class="element__heart heart-animation"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element">
+                <img src="./images/lagonaki.jpg" class="element__image" alt="Лагонаки">
+                <div class="element__group">
+                    <div class="element__like">
+                        <h2 class="element__title link-animation">Лагонаки</h2>
+                        <div class="element__heart heart-animation"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="element">
+                <img src="./images/novorossiisk.jpg" class="element__image" alt="Новороссийск">
+                <div class="element__group">
+                    <div class="element__like">
+                        <h2 class="element__title link-animation">Новороссийск</h2>
+                        <div class="element__heart heart-animation"></div>
+                    </div>
+                </div>
+            </div>
 
         </section>
-        
+
         <footer class="footer">
-          <p class="footer__copyright">&copy;2020.<a href="https://vk.com/trufan" target="_blank" class="footer__social-link link-animation">trufan</a></p>
+            <p class="footer__copyright">&copy; 2020 Mesto Russia by <a href="https://vk.com/trufan" target="_blank" class="footer__social-link link-animation">trufan</a></p>
         </footer>
-    </div>       
-  </body>
+
+        <section class="overlay">
+            <div class="popup">
+                <button class="popup__close" type="button"></button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="popup__form" name="form">
+                    <input class="popup__name" type="text"></input>
+                    <input class="popup__activity" type="text"></input>
+                    <button class="popup__submit" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    <script src="./scripts/index.js"></script>
+</body>
+
 </html>
