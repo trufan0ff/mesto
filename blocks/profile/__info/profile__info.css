@@ -6,3 +6,10 @@
     justify-content: center;
     box-sizing: border-box;
 }
+
+
+@media screen and (min-width: 320px) {
+    .profile__info {
+        margin-bottom: 36px;
+    }
+}

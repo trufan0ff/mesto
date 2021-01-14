@@ -6,3 +6,7 @@
     cursor: pointer;
     overflow: hidden;
 }
+
+.element__heart:active {
+    background-image: url("../../../images/heart-active.svg");
+}

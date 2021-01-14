@@ -6,3 +6,8 @@
   transition: heart-animation 10s linear forwards;
   opacity: 0.5;
 }
+
+.heart-animation:hover {
+  transition: heart-animation 10s linear forwards;
+  opacity: 1;
+}

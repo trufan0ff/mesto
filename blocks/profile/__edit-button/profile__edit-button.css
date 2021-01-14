@@ -16,3 +16,9 @@
         height: 18px;
     }
 }
+
+@media screen and (max-width: 320px) {
+    .profile__edit-button {
+        background-size: cover;
+    }
+}
