@@ -2,14 +2,14 @@
     display: flex;
     flex-direction: column;
     color: #fff;
-    margin-left: 30px;
+    margin: 0 0 0 30px;
     justify-content: center;
     box-sizing: border-box;
+    
 }
 
-
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 879px) {
     .profile__info {
-        margin-bottom: 36px;
+        max-width: 100%;
     }
 }

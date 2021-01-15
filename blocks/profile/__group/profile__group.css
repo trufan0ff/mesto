@@ -14,6 +14,6 @@
 
 @media screen and (max-width: 579px) {
     .profile__group {
-        width: 320px;
+        max-width: 320px;
     }
 }

@@ -3,6 +3,7 @@
 @import "../blocks/body/body.css";
 @import "../blocks/page/page.css";
 @import "../blocks/header/header.css";
+@import "../blocks/header__logo/header__logo.css";
 @import "../blocks/profile/profile.css";
 @import "../blocks/profile/__avatar/profile__avatar.css";
 @import "../blocks/profile/__info/profile__info.css";

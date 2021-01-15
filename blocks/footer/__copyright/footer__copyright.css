@@ -3,5 +3,12 @@
     font-size: 18px;
     line-height: 22px;
     color: #545454;
+}
 
+@media screen and (max-width: 579px) {
+    .footer__copyright {
+        margin: 0 auto;
+        font-size: 14px;
+        line-height: 17px;
+    }
 }

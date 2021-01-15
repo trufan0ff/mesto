@@ -14,3 +14,12 @@
     transition: heart-animation 10s linear forwards;
     opacity: 0.8;
 }
+
+@media screen and (max-width: 320px) {
+    .popup__submit {
+        max-width: 238px;
+        height: 46px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

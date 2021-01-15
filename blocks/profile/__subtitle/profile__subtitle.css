@@ -3,7 +3,18 @@
     font-size: 18px;
     line-height: 22px;
     color: #fff;
-    margin: 0;
+    margin: 0 auto;
     max-width: 336px;
     width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    justify-content: center;
+}
+
+@media screen and (max-width: 879px) {
+    .profile__subtitle {
+        margin-bottom: 36px;
+        max-width: 282px;
+    }
 }

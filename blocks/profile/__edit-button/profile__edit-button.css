@@ -8,17 +8,12 @@
     background-color: #000;
     cursor: pointer;
     box-sizing: border-box;
+    background-size: cover;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 879px) {
     .profile__edit-button {
         width: 18px;
         height: 18px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .profile__edit-button {
-        background-size: cover;
     }
 }

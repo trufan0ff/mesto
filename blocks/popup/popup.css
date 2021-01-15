@@ -10,3 +10,10 @@
     display: flex;
     flex-direction: column;
 }
+
+@media screen and (max-width: 320px) {
+    .popup {
+        max-width: 282px;
+        padding: 25px 22px;
+    }
+}
