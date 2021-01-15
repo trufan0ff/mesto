@@ -24,12 +24,6 @@ const innerName = () => {
 }
 
 const innerInfo = () => {
-    const profileEditInfo = document.querySelector('.profile__info')
-    profileEditInfo.innerHTML = `<div class="profile__edit">
-    <h2 class="profile__title">${popupName.value}</h2>
-    <button class="profile__edit-button" type="button"></button>
-    </div>
-    <p class="profile__subtitle">${popupActivity.value}</p>`
     titleName.textContent = popupName.value
     subtitleName.textContent = popupActivity.value
 }
@@ -48,6 +42,7 @@ overlay.addEventListener('click', (event) => {      /* Клик по оверл�
 
 const form = overlay.querySelector('.popup__form')  /* переменная формы */
 form.addEventListener('submit', event => {          /* event - функция обработчик стандартного события */
-    event.preventDefault(togglePopup())             /* отмена стандартного события(не перезагрузит страницу) */
-    event.preventDefault(innerInfo())
+    event.preventDefault()  
+    togglePopup()                                   /* отмена стандартного события(не перезагрузит страницу) */
+    innerInfo()
 })

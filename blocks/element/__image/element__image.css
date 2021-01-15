@@ -6,7 +6,3 @@
     cursor: pointer;
     transition: all .3s ease-out;
 }
-
-.element__image:hover {
-    transform: scale(1.1);
-}

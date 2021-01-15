@@ -5,4 +5,12 @@
     border-radius: 2px;
     color: #fff;
     cursor: pointer;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.popup__submit:hover {
+    transition: heart-animation 10s linear forwards;
+    opacity: 0.8;
 }

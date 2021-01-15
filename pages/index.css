@@ -1,5 +1,6 @@
-@import "../blocks/body/body.css";
+@import "../vendor/normalize.css";
 @import "../fonts/Inter/inter.css";
+@import "../blocks/body/body.css";
 @import "../blocks/page/page.css";
 @import "../blocks/header/header.css";
 @import "../blocks/profile/profile.css";

@@ -1,6 +1,6 @@
 .element__group {
     display: flex;
-    padding: 25px auto 31px;
+    padding: 25px 0 31px;
     background-color: #fff;
     border-radius: 0px 0px 10px 10px;
     box-sizing: border-box;
