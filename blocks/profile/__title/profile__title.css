@@ -21,5 +21,7 @@
 }
 
 @media screen and (max-width: 579px) {
-    .profile__title {}
+    .profile__title {
+        max-width: 232px;
+    }
 }
