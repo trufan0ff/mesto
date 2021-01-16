@@ -1,10 +1,12 @@
 .element__group {
     display: flex;
-    padding: 25px 0 31px;
+    padding: 25px 18px 31px;
     background-color: #fff;
     border-radius: 0px 0px 10px 10px;
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
     min-height: 79px;
+    max-width: 282px;
+    white-space: nowrap;
 }

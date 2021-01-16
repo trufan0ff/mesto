@@ -5,8 +5,15 @@
     margin: 0;
     cursor: pointer;
     overflow: hidden;
+    border: none;
 }
 
 .element__heart:active {
-    background-image: url("../../../images/heart-active.svg");
+    background-image: url("../../../images/heart.svg");
+    background-color: #000000;
+    overflow: hidden;
+    background-size: cover;
+}
+.element__heart:hover {
+    opacity: 0.5;
 }
