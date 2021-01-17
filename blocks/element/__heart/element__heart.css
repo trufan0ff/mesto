@@ -6,13 +6,15 @@
     cursor: pointer;
     overflow: hidden;
     border: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .element__heart:active {
     background-image: url("../../../images/heart.svg");
     background-color: #000000;
-    overflow: hidden;
-    background-size: cover;
 }
 .element__heart:hover {
     opacity: 0.5;

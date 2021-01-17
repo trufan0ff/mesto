@@ -8,9 +8,9 @@ const titleName = document.querySelector('.profile__title')
 
 const subtitleName = document.querySelector('.profile__subtitle')
 
-const popupName = document.querySelector('.popup__name_firstName_first')
+const popupName = document.querySelector('.popup__input_type_name')
 
-const popupActivity = document.querySelector('.popup__name_firstName_activity')
+const popupActivity = document.querySelector('.popup__input_type_activity')
 
 
 

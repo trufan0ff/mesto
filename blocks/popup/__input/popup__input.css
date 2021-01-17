@@ -1,4 +1,4 @@
-.popup__name_firstName_first {
+.popup__input {
     font-size: 14px;
     line-height: 17px;
     color: #000;
@@ -7,14 +7,18 @@
     border-right: none;
     border-bottom: 1px solid rgba( 0, 0, 0, .2);
     max-width: 358px;
-    margin-bottom: 30px;
     outline: none;
+    margin-bottom: 30px;
 }
 
-.popup__name_firstName_first:active {
+.popup__input:active {
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: 1px solid rgba( 0, 0, 0, .2);
     outline: none;
+}
+
+.popup__input:last-of-type {
+    margin: 0;
 }
