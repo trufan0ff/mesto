@@ -1,4 +1,4 @@
-.popup__name_activity {
+.popup__name_firstName_activity {
     font-size: 14px;
     line-height: 17px;
     color: #000;
@@ -11,7 +11,7 @@
     outline: none;
 }
 
-.popup__name_activity:active {
+.popup__name_firstName_activity:active {
     border-top: none;
     border-left: none;
     border-right: none;
