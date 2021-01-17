@@ -1,4 +1,4 @@
-.popup__name {
+.popup__name_activity {
     font-size: 14px;
     line-height: 17px;
     color: #000;
@@ -7,11 +7,11 @@
     border-right: none;
     border-bottom: 1px solid rgba( 0, 0, 0, .2);
     max-width: 358px;
-    margin-bottom: 30px;
+    margin-bottom: 48px;
     outline: none;
 }
 
-.popup__name:active {
+.popup__name_activity:active {
     border-top: none;
     border-left: none;
     border-right: none;

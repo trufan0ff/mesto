@@ -27,7 +27,7 @@
                     <button class="profile__add-button" type = "button"></button>
                 </div>
         </section>
-    </main>
+
         <section class="elements">
 
             <div class="element">
@@ -79,18 +79,18 @@
             </div>
 
         </section>
-
+</main> 
         <footer class="footer">
             <p class="footer__copyright">&copy; 2020 Mesto Russia by <a href="https://vk.com/trufan" target="_blank" class="footer__social-link link-animation">trufan</a></p>
         </footer>
 
-        <section class="overlay">
-            <div class="popup">
+        <section class="popup">
+            <div class="popup__container">
                 <button class="popup__close" type="button"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form class="popup__form" name="form">
-                    <input class="popup__name" type="text" name="name" placeholder="Ваше имя">
-                    <input class="popup__activity" type="text" name="activity" placeholder="Чем увлекаетесь">
+                    <input class="popup__name popup__name_firstName" type="text" name="name" placeholder="Ваше имя">
+                    <input class="popup__name popup__name_activity" type="text" name="activity" placeholder="Чем увлекаетесь">
                     <button class="popup__submit" type="submit">Сохранить</button>
                 </form>
             </div>

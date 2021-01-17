@@ -2,6 +2,7 @@
 @import "../fonts/Inter/inter.css";
 @import "../blocks/body/body.css";
 @import "../blocks/page/page.css";
+@import "../blocks/link-animation/link-animation.css";
 @import "../blocks/header/header.css";
 @import "../blocks/header__logo/header__logo.css";
 @import "../blocks/profile/profile.css";
@@ -22,14 +23,12 @@
 @import "../blocks/footer/footer.css";
 @import "../blocks/footer/__copyright/footer__copyright.css";
 @import "../blocks/footer/__social-link/footer__social-link.css";
-@import "../blocks/link-animation/link-animation.css";
-@import "../blocks/heart-animation/heart-animation.css";
-@import "../blocks/overlay/overlay.css";
-@import "../blocks/overlay/_active/overlay_active.css";
 @import "../blocks/popup/popup.css";
+@import "../blocks/popup/_active/popup_active.css";
+@import "../blocks/popup/__container/popup__container.css";
 @import "../blocks/popup/__title/popup__title.css";
 @import "../blocks/popup/__form/popup__form.css";
-@import "../blocks/popup/__name/popup__name.css";
-@import "../blocks/popup//__activity/popup__activity.css";
+@import "../blocks/popup/__name/_firstName/popup__name_firstName.css";
+@import "../blocks/popup/__name/_activity/popup__name_activity.css";
 @import "../blocks/popup/__close/popup__close.css";
 @import "../blocks/popup/__submit/popup__submit.css";
