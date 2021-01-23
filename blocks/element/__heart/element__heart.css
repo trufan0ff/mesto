@@ -12,10 +12,6 @@
     background-size: cover;
 }
 
-.element__heart:active {
-    background-image: url("../../../images/heart.svg");
-    background-color: #000000;
-}
 .element__heart:hover {
     opacity: 0.5;
 }
