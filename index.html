@@ -30,67 +30,13 @@
 
         <section class="elements">
 
-            <div class="element">
-                <img src="./images/guamka.jpg" class="element__image" alt="Гуамское ущелье">
-                <button class="element__delete" type = "button"></button>
-                <div class="element__group">
-                        <h2 class="element__title">Гуамское ущелье</h2>
-                        <button class="element__heart" type = "button"></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img src="./images/arhiz.jpg" class="element__image" alt="Архыз">
-                <button class="element__delete" type = "button"></button>
-                <div class="element__group">
-                        <h2 class="element__title">Архыз</h2>
-                        <button class="element__heart" type = "button"></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img src="./images/dombai.jpg" class="element__image" alt="Домбай">
-                <button class="element__delete" type = "button"></button>
-                <div class="element__group">
-                        <h2 class="element__title">Домбай</h2>
-                        <button class="element__heart" type = "button"></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img src="./images/krasnodar.jpg" class="element__image" alt="Краснодар">
-                <button class="element__delete" type = "button"></button>
-                <div class="element__group">
-                        <h2 class="element__title">Парк Краснодар</h2>
-                        <button class="element__heart" type = "button"></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img src="./images/lagonaki.jpg" class="element__image" alt="Лагонаки">
-                <button class="element__delete" type = "button"></button>
-                <div class="element__group">
-                        <h2 class="element__title">Лагонаки</h2>
-                        <button class="element__heart" type = "button"></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img src="./images/novorossiisk.jpg" class="element__image" alt="Новороссийск">
-                <button class="element__delete" type = "button"></button>
-                <div class="element__group">
-                        <h2 class="element__title">Новороссийск</h2>
-                        <button class="element__heart" type = "button"></button>
-                </div>
-            </div>
-
         </section>
 </main> 
         <footer class="footer">
             <p class="footer__copyright">&copy; 2020 Mesto Russia by <a href="https://vk.com/trufan" target="_blank" class="footer__social-link link-animation">trufan</a></p>
         </footer>
 
-        <section class="popup popup_type_edit-profile" id = "edit-popup">
+        <section class="popup popup_type_edit-popup" id = "edit-popup">
             <div class="popup__container">
                 <button class="popup__close" type="button"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
@@ -102,7 +48,7 @@
             </div>
         </section>
 
-        <section class="popup popup_type_edit-profile" id = "add-popup">
+        <section class="popup popup_type_add-popup" id = "add-popup">
             <div class="popup__container">
                 <button class="popup__close" type="button"></button>
                 <h2 class="popup__title">Новое место</h2>
@@ -114,22 +60,23 @@
             </div>
         </section>
 
-        <section class="popup popup_type_edit-profile" id = "image-popup">
+        <section class="popup popup_type_image-popup" id = "image-popup">
             <div class="popup__container popup__container_type_image">
                 <button class="popup__close" type="button"></button>
+                <img src="#" class="element__image" alt="Изображение">
             </div>
             <h2 class="popup__title"></h2>
         </section>
 
     </div>
-    <script src="./scripts/index.js"></script>
+    <script defer src="./scripts/index.js"></script>
 
-    <template class ="item-template">
+    <template class = "item-template">
         <div class="element">
             <img src="#" class="element__image" alt="Изображение">
             <button class="element__delete" type = "button"></button>
             <div class="element__group">
-                    <h2 class="element__title"></h2>
+                    <h2 class="element__title">Название</h2>
                     <button class="element__heart" type = "button"></button>
             </div>
         </div>
