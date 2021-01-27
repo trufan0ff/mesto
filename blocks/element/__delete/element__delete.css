@@ -11,3 +11,11 @@
     background-color: transparent;
     cursor: pointer;
 }
+
+.element__delete:focus {
+    outline: -webkit-focus-ring-color auto 0;
+}
+
+.element__delete:hover {
+    opacity: 0.6;
+}

@@ -1,7 +1,7 @@
 .element__heart {
     background-image: url("../../../images/heart.svg");
-    width: 20.76px;
-    height: 18.13px;
+    width: 21px;
+    height: 18px;
     margin: 0;
     cursor: pointer;
     overflow: hidden;
@@ -14,4 +14,7 @@
 
 .element__heart:hover {
     opacity: 0.5;
+}
+.element__heart:focus {
+    outline: -webkit-focus-ring-color auto 0;
 }

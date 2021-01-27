@@ -51,12 +51,12 @@ const form = popup.querySelector('.popup__form')    /* переменная фо
 const listElements = document.querySelector('.elements')
 const elementHeart = document.querySelector('.element__heart')
 
-const toggleLike = () => {
-  elementHeart.classList.toggle('.element__heart_active')
+const toggleLike = (evt) => {
+  evt.target.classList.toggle('element__heart_type_active')
 }
 
-const removeCard = () => {
-  deleteButton.closest('.element').remove()
+const removeCard = (evt) => {
+  evt.target.closest('.element').remove()
 }
 
 function getCardElement(place) {  
@@ -87,7 +87,6 @@ function render() {
 }
 
 function addNewCard(evt){
-  evt.preventDefault()
   const data = {
     name: popupNameMesto.value,
     link: popupLink.value
@@ -140,7 +139,7 @@ closeButtonImage.addEventListener('click', () => {
 popup.addEventListener('click', (event) => {  
   const activePopup = document.querySelector('.popup_active')      /* Клик по оверлею закрывает форму */
     if (event.target === event.currentTarget) {     /* определяет куда нажал пользователь(непонятная магия) */
-      closePopup()
+      closePopup(activePopup)
     }
 })
 
@@ -152,7 +151,7 @@ form.addEventListener('submit', event => {          /* event - функция о
 
 const addNewCardCall = document.querySelector('.popup_type_add-popup')
 
-addNewCardCall.addEventListener('submit', event => {          /* Добавление новой карточки при нажатии на кнопку -Создать-
+addNewCardCall.addEventListener('submit', event => {          /* Добавление новой карточки при нажатии на кнопку -Создать-*/
   event.preventDefault()                                     /* отмена стандартного события(не перезагрузит страницу) */  
   addNewCard()                                               //Запуск функции создания карточки
   popupNameMesto.reset()                                     /*Сброс заполненых параметров*/                                          /*Сброс заполненых параметров*/
