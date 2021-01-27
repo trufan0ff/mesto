@@ -40,7 +40,7 @@
             <div class="popup__container">
                 <button class="popup__close" type="button"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__form" name="form">
+                <form class="popup__form" name="form-edit">
                     <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Ваше имя">
                     <input class="popup__input popup__input_type_activity" type="text" name="activity" placeholder="Чем увлекаетесь">
                     <button class="popup__submit" type="submit">Сохранить</button>
@@ -52,7 +52,7 @@
             <div class="popup__container">
                 <button class="popup__close" type="button"></button>
                 <h2 class="popup__title">Новое место</h2>
-                <form class="popup__form" name="form">
+                <form class="popup__form" name="form-add">
                     <input class="popup__input popup__input_type_mesto-name" type="text" name="mesto-name" placeholder="Название">
                     <input class="popup__input popup__input_type_link" type="text" name="link" placeholder="Ссылка на картинку">
                     <button class="popup__submit" type="submit">Создать</button>
@@ -61,11 +61,13 @@
         </section>
 
         <section class="popup popup_type_image-popup" id = "image-popup">
-            <div class="popup__container popup__container_type_image">
-                <button class="popup__close" type="button"></button>
-                <img src="#" class="popup__image" alt="Изображение">
+            <div class="popup__container-image">
+                <div class="popup__container popup__container_type_image">
+                    <button class="popup__close" type="button"></button>
+                    <img src="#" class="popup__image" alt="Изображение">
+                </div>
+                <h2 class="popup__image-title"></h2>
             </div>
-            <h2 class="popup__title"></h2>
         </section>
 
     </div>

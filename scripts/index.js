@@ -42,15 +42,15 @@ const deleteButton = document.querySelector('.element__delete')
 const titleName = document.querySelector('.profile__title')
 const subtitleName = document.querySelector('.profile__subtitle')
 const titleImageMesto = document.querySelector('.element__title')
-const popupTitleImage = popupImage.querySelector('.popup__title')
+const popupTitleImage = popupImage.querySelector('.popup__image-title')
 const popupName = document.querySelector('.popup__input_type_name')
 const popupActivity = document.querySelector('.popup__input_type_activity')
 const popupNameMesto = popupMesto.querySelector('.popup__input_type_mesto-name')
 const popupLink = popupMesto.querySelector('.popup__input_type_link')
 const form = popup.querySelector('.popup__form')    /* переменная формы */
 const listElements = document.querySelector('.elements')
-
 const elementHeart = document.querySelector('.element__heart')
+
 const toggleLike = () => {
   elementHeart.classList.toggle('.element__heart_active')
 }
@@ -62,22 +62,24 @@ const removeCard = () => {
 function getCardElement(place) {  
   const itemTemplate = document.querySelector('.item-template').content
   const addCard = itemTemplate.querySelector('.element').cloneNode(true)   
-
   addCard.querySelector('.element__title').textContent = place.name           
-  addCarrdImage = addCard.querySelector('.element__image')
-  addCarrdImage.src = place.link
-  addCarrdImage.alt = place.name
+  addCardImage = addCard.querySelector('.element__image')
+  addCardImage.src = place.link
+  addCardImage.alt = place.name
   addCard.querySelector('.element__heart').addEventListener('click', toggleLike)
   addCard.querySelector('.element__delete').addEventListener('click', removeCard)   
-  addCarrdImage.addEventListener('click', (evt) => {
-    evt.preventDefault()
-    togglePopupImage()
-    popupLink.src = place.link
-    popupNameMesto.alt = place.name
-    popupTitleImage.textContent = place.name
-  })
+  addCardImage.addEventListener('click', () => {
+    handlePreviewPicture(place)
+  });
   return addCard                                             
 }
+
+const handlePreviewPicture = (place) => {
+    openPopup(popupImage)
+    openPopupImage.src = place.link
+    openPopupImage.alt = place.name;
+    popupTitleImage.textContent = place.name
+};
 
 function render() {
   const renderElement = initialCards.map(getCardElement)
@@ -90,9 +92,9 @@ function addNewCard(evt){
     name: popupNameMesto.value,
     link: popupLink.value
   }
-  const newElement = addingCards(data)
+  const newElement = getCardElement(data)
   listElements.prepend(newElement)
-  closeButtonMesto.addEventListener('click', closePopup)
+  closePopup(popupMesto)
 }
 render();
 
@@ -104,8 +106,6 @@ const closePopup = (popup) => {
   popup.classList.remove('popup_active')            /* Удаляет класс overlay_active */
 }
 
-
-
 const inputName = () =>{
   popupActivity.value = subtitleName.textContent; /* берет из профиля значение субтитл и записывает его в форму хобби */
   popupName.value = titleName.textContent; /* берет из профиля значение титл и записывает его в форму Имя */
@@ -116,29 +116,38 @@ const inputInfo = () => {
     subtitleName.textContent = popupActivity.value
 }
 
-addButton.addEventListener('click', openPopup)
+addButton.addEventListener('click', () => {
+  openPopup(popupMesto)
+})
 openButton.addEventListener('click', () => {
-  openPopup()
+  openPopup(popupEdit)
   inputName()
 })
-openPopupImage.addEventListener('click', openPopup)
-deleteButtonRemove.addEventListener('click', removeCard)
+openPopupImage.addEventListener('click', () => {
+  openPopup(popupImage)
+})
 
-closeButton.addEventListener('click', closePopup)  /* При нажатии кнопки закрытия(крестик) вызывает функцию togglePopup() */ /* колбэк */
-closeButtonMesto.addEventListener('click', closePopup)
-closeButtonImage.addEventListener('click', closePopup)
+closeButton.addEventListener('click', () => {
+  closePopup(popupEdit)
+})  /* При нажатии кнопки закрытия(крестик) вызывает функцию togglePopup() */ /* колбэк */
+closeButtonMesto.addEventListener('click', () => {
+  closePopup(popupMesto)
+})
+closeButtonImage.addEventListener('click', () => {
+  closePopup(popupImage)
+})
 
-const activePopup = document.querySelector('.popup_active')
-activePopup.addEventListener('click', (event) => {        /* Клик по оверлею закрывает форму */
+popup.addEventListener('click', (event) => {  
+  const activePopup = document.querySelector('.popup_active')      /* Клик по оверлею закрывает форму */
     if (event.target === event.currentTarget) {     /* определяет куда нажал пользователь(непонятная магия) */
-      closePopup(popup)
+      closePopup()
     }
 })
 
 form.addEventListener('submit', event => {          /* event - функция обработчик стандартного события */
   event.preventDefault()                          /* отмена стандартного события(не перезагрузит страницу) */
   inputInfo()
-  closePopup(popup)                         
+  closePopup(popupEdit)                         
 })
 
 const addNewCardCall = document.querySelector('.popup_type_add-popup')
@@ -146,6 +155,5 @@ const addNewCardCall = document.querySelector('.popup_type_add-popup')
 addNewCardCall.addEventListener('submit', event => {          /* Добавление новой карточки при нажатии на кнопку -Создать-
   event.preventDefault()                                     /* отмена стандартного события(не перезагрузит страницу) */  
   addNewCard()                                               //Запуск функции создания карточки
-  popupNameMesto.reset()                                     /*Сброс заполненых параметров*/
-  popupLink.reset()                                          /*Сброс заполненых параметров*/
+  popupNameMesto.reset()                                     /*Сброс заполненых параметров*/                                          /*Сброс заполненых параметров*/
 })

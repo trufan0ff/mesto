@@ -4,9 +4,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: center;
-    width: 95%;
+    padding: 0;
 }
-
 @media screen and (max-width: 320px) {
     .popup__container_type_image {
         max-width: 240px;
