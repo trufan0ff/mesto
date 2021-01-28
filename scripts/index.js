@@ -26,17 +26,17 @@ const initialCards = [
   }
 ]; 
 
-const openButton = document.querySelector('.profile__edit-button')
-const addButton = document.querySelector('.profile__add-button')
+const openEditPopupButton = document.querySelector('.profile__edit-button')
+const addEditPopupButton = document.querySelector('.profile__add-button')
 const imageOpen = document.querySelector('.element__image')
-const popupMesto = document.querySelector('#add-popup')
-const addCards = popupMesto.querySelector('.popup__submit')
-const popupEdit = document.querySelector('#edit-popup')
+const popupMesto = document.querySelector('.popup_type_add-popup')
+const addCardsButton = popupMesto.querySelector('.popup__submit')
+const editPopup = document.querySelector('.popup_type_edit-popup')
 const popup = document.querySelector('.popup')
-const closeButton = popup.querySelector('.popup__close')
-const closeButtonMesto = popupMesto.querySelector('.popup__close')
-const popupImage = document.querySelector('#image-popup')
-const closeButtonImage = popupImage.querySelector('.popup__close')
+const closePopupButton = popup.querySelector('.popup__close')
+const closeMestoButton = popupMesto.querySelector('.popup__close')
+const popupImage = document.querySelector('.popup_type_image-popup')
+const closeImageButton = popupImage.querySelector('.popup__close')
 const openPopupImage = popupImage.querySelector('.popup__image')
 const deleteButton = document.querySelector('.element__delete')
 const titleName = document.querySelector('.profile__title')
@@ -47,7 +47,7 @@ const popupName = document.querySelector('.popup__input_type_name')
 const popupActivity = document.querySelector('.popup__input_type_activity')
 const popupNameMesto = popupMesto.querySelector('.popup__input_type_mesto-name')
 const popupLink = popupMesto.querySelector('.popup__input_type_link')
-const form = popup.querySelector('.popup__form')    /* переменная формы */
+const formEditPopup = document.querySelector('.popup__form')    /* переменная формы */
 const listElements = document.querySelector('.elements')
 const elementHeart = document.querySelector('.element__heart')
 
@@ -115,38 +115,50 @@ const inputInfo = () => {
     subtitleName.textContent = popupActivity.value
 }
 
-addButton.addEventListener('click', () => {
+addEditPopupButton.addEventListener('click', () => {
   openPopup(popupMesto)
 })
-openButton.addEventListener('click', () => {
-  openPopup(popupEdit)
+openEditPopupButton.addEventListener('click', () => {
+  openPopup(editPopup)
   inputName()
 })
 openPopupImage.addEventListener('click', () => {
   openPopup(popupImage)
 })
 
-closeButton.addEventListener('click', () => {
-  closePopup(popupEdit)
+closePopupButton.addEventListener('click', () => {
+  closePopup(editPopup)
 })  /* При нажатии кнопки закрытия(крестик) вызывает функцию togglePopup() */ /* колбэк */
-closeButtonMesto.addEventListener('click', () => {
+closeMestoButton.addEventListener('click', () => {
   closePopup(popupMesto)
 })
-closeButtonImage.addEventListener('click', () => {
+closeImageButton.addEventListener('click', () => {
   closePopup(popupImage)
 })
 
 popup.addEventListener('click', (event) => {  
+  overlayClose(event)
+})
+
+popupMesto.addEventListener('click', (event) => {  
+  overlayClose(event)
+})
+
+popupImage.addEventListener('click', (event) => {  
+  overlayClose(event)
+})
+
+function overlayClose(event) {
   const activePopup = document.querySelector('.popup_active')      /* Клик по оверлею закрывает форму */
     if (event.target === event.currentTarget) {     /* определяет куда нажал пользователь(непонятная магия) */
       closePopup(activePopup)
     }
-})
+}
 
-form.addEventListener('submit', event => {          /* event - функция обработчик стандартного события */
+formEditPopup.addEventListener('submit', event => {          /* event - функция обработчик стандартного события */
   event.preventDefault()                          /* отмена стандартного события(не перезагрузит страницу) */
   inputInfo()
-  closePopup(popupEdit)                         
+  closePopup(editPopup)                         
 })
 
 const addNewCardCall = document.querySelector('.popup_type_add-popup')
@@ -154,5 +166,5 @@ const addNewCardCall = document.querySelector('.popup_type_add-popup')
 addNewCardCall.addEventListener('submit', event => {          /* Добавление новой карточки при нажатии на кнопку -Создать-*/
   event.preventDefault()                                     /* отмена стандартного события(не перезагрузит страницу) */  
   addNewCard()                                               //Запуск функции создания карточки
-  popupNameMesto.reset()                                     /*Сброс заполненых параметров*/                                          /*Сброс заполненых параметров*/
+  const formReset = addNewCardCall.querySelector('.popup__form').reset()                                     /*Сброс заполненых параметров*/                                          /*Сброс заполненых параметров*/
 })
