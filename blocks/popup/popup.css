@@ -9,5 +9,5 @@
     align-items: center;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 400ms 0ms, opacity 400ms 0ms linear;
+    transition: visibility 0ms, opacity 0ms linear;
 }

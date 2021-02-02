@@ -168,3 +168,10 @@ addNewCardCall.addEventListener('submit', event => {          /* Добавле�
   addNewCard()                                               //Запуск функции создания карточки
   const formReset = addNewCardCall.querySelector('.popup__form').reset()                                     /*Сброс заполненых параметров*/                                          /*Сброс заполненых параметров*/
 })
+
+document.body.addEventListener('keydown', function (evt) {
+  const activePopup = document.querySelector('.popup_active')
+  if (evt.key === 'Escape') {
+    closePopup(activePopup)
+  }
+}, false)

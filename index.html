@@ -39,9 +39,11 @@
             <div class="popup__container">
                 <button class="popup__close" type="button"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__form" name="form-edit">
-                    <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Ваше имя">
-                    <input class="popup__input popup__input_type_activity" type="text" name="activity" placeholder="Чем увлекаетесь">
+                <form class="popup__form" name="form-edit" novalidate>
+                    <input class="popup__input popup__input_type_name" id="name-input" minlength="2" maxlength="40" required type="text" name="name" placeholder="Ваше имя">
+                    <span class="popup__input-error name-input-error"></span>
+                    <input class="popup__input popup__input_type_activity" id="about" minlength="2" maxlength="200" required type="text" name="activity" placeholder="О себе">
+                    <span class="popup__input-error about-error"></span>
                     <button class="popup__submit" type="submit">Сохранить</button>
                 </form>
             </div>
@@ -51,10 +53,12 @@
             <div class="popup__container">
                 <button class="popup__close" type="button"></button>
                 <h2 class="popup__title">Новое место</h2>
-                <form class="popup__form" name="form-add">
-                    <input class="popup__input popup__input_type_mesto-name" type="text" name="mesto-name" placeholder="Название">
-                    <input class="popup__input popup__input_type_link" type="text" name="link" placeholder="Ссылка на картинку">
-                    <button class="popup__submit" type="submit">Создать</button>
+                <form class="popup__form" name="form-add" novalidate>
+                    <input class="popup__input popup__input_type_mesto-name" id="mesto-name" type="text" minlength="2" maxlength="30" required name="mesto-name" placeholder="Название">
+                    <span class="popup__input-error mesto-name-error"></span>
+                    <input class="popup__input popup__input_type_link" id="link" type="url" name="link" required placeholder="Ссылка на картинку">
+                    <span class="popup__input-error link-error"></span>
+                    <button class="popup__submit popup__button_valid" type="submit">Создать</button>
                 </form>
             </div>
         </section>
@@ -70,7 +74,9 @@
         </section>
 
     </div>
+
     <script defer src="./scripts/index.js"></script>
+    <script defer src="./scripts/validate.js"></script>
 
     <template class = "item-template">
         <div class="element">
