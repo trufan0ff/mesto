@@ -1,28 +1,28 @@
 
 const initialCards = [
   {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'             
+    name: 'Памуккале, Турция',
+    link: 'https://tripmydream.cc/travelhub/travel/block_gallery/11/3094/default_113094.jpg?'             
   },
   {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    name: 'Озеро Ретба, Сенегал',
+    link: 'https://tripmydream.cc/travelhub/travel/block_gallery/11/3096/default_113096.jpg?'
   },
   {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    name: 'Сокотра, Йемен',
+    link: 'https://tripmydream.cc/travelhub/travel/block_gallery/11/3112/default_113112.jpg?'
   },
   {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    name: 'парк Лассен, США',
+    link: 'https://tripmydream.cc/travelhub/travel/block_gallery/90/135/default_90135.jpg?'
   },
   {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    name: 'Гейзер Флай, США',
+    link: 'https://tripmydream.cc/travelhub/travel/block_gallery/11/3114/default_113114.jpg?'
   },
   {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    name: 'Дорога гигантов, Ирландия',
+    link: 'https://tripmydream.cc/travelhub/travel/block_gallery/11/3116/default_113116.jpg?'
   }
 ]; 
 
@@ -31,9 +31,8 @@ const addEditPopupButton = document.querySelector('.profile__add-button')
 const imageOpen = document.querySelector('.element__image')
 const popupMesto = document.querySelector('.popup_type_add-popup')
 const addCardsButton = popupMesto.querySelector('.popup__submit')
-const profilePopup = document.querySelector('.popup_type_edit-popup')   //вот попап профиля
-const popup = document.querySelector('.popup')                          //этот попап мне нужен выше
-const closePopupButton = popup.querySelector('.popup__close')
+const profilePopup = document.querySelector('.popup_type_edit-popup')  
+const closePopupButton = profilePopup.querySelector('.popup__close')
 const closeMestoButton = popupMesto.querySelector('.popup__close')
 const popupImage = document.querySelector('.popup_type_image-popup')
 const closeImageButton = popupImage.querySelector('.popup__close')
