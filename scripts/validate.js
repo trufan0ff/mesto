@@ -1,17 +1,3 @@
-
-
-const form = document.querySelector('.popup__form')              // OK
-const formInput = form.querySelector('.popup__input')            // OK
-const formError = form.querySelector(`.${formInput.id}-error`)   // OK
-
-form.addEventListener('submit', function (evt) {                 // OK
-    evt.preventDefault()
-})
-
-formInput.addEventListener('input', function (evt) {
-    checkInputValidity(form, formInput)
-})
-
 const showInputError = (formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`)
     inputElement.classList.add('popup__input_type_error')

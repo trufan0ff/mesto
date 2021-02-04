@@ -56,7 +56,7 @@
                 <form class="popup__form" name="form-add" novalidate>
                     <input class="popup__input popup__input_type_mesto-name" id="mesto-name" type="text" minlength="2" maxlength="30" required name="mesto-name" placeholder="Название">
                     <span class="popup__input-error mesto-name-error"></span>
-                    <input class="popup__input popup__input_type_link" id="link" type="url" name="link" required placeholder="Ссылка на картинку">
+                    <input class="popup__input popup__input_type_link" id="url" pattern="https://.*" type="url" name="url" required placeholder="Ссылка на картинку">
                     <span class="popup__input-error link-error"></span>
                     <button class="popup__submit" type="submit">Создать</button>
                 </form>

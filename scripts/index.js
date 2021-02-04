@@ -63,7 +63,7 @@ function getCardElement(place) {
   const itemTemplate = document.querySelector('.item-template').content
   const addCard = itemTemplate.querySelector('.element').cloneNode(true)   
   addCard.querySelector('.element__title').textContent = place.name           
-  addCardImage = addCard.querySelector('.element__image')
+  const addCardImage = addCard.querySelector('.element__image')
   addCardImage.src = place.link
   addCardImage.alt = place.name
   addCard.querySelector('.element__heart').addEventListener('click', toggleLike)
@@ -99,10 +99,12 @@ render();
 
 const openPopup = (popup) => {
   popup.classList.add('popup_active')            /* добавляет класс overlay_active */
+  document.addEventListener('keydown', closeByEscape);
 }
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_active')            /* Удаляет класс overlay_active */
+  document.addEventListener('keydown', closeByEscape);
 }
 
 const inputName = () =>{
@@ -169,9 +171,12 @@ addNewCardCall.addEventListener('submit', event => {          /* Добавле�
   const formReset = addNewCardCall.querySelector('.popup__form').reset()                                     /*Сброс заполненых параметров*/                                          /*Сброс заполненых параметров*/
 })
 
-document.body.addEventListener('keydown', function (evt) {
-  const activePopup = document.querySelector('.popup_active')
+function closeByEscape(evt) {
   if (evt.key === 'Escape') {
-    closePopup(activePopup)
+    const openedPopup = document.querySelector('.popup_active')
+    closePopup(openedPopup);
   }
-}, false)
+}
+
+document.addEventListener('keydown', closeByEscape); 
+document.removeEventListener('keydown', closeByEscape); 
