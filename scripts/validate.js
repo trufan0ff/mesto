@@ -1,43 +1,53 @@
-const showInputError = (formElement, inputElement, errorMessage) => {
+enableValidation = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    buttonElement: '.popup__submit',
+    inactiveButtonClass: 'popup__submit_inactive',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error_visible'
+}
+
+const showInputError = (formElement, inputElement, errorMessage, enableValidation) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`)
-    inputElement.classList.add('popup__input_type_error')
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add('popup__input-error_active')
+    inputElement.classList.add(enableValidation.inputErrorClass)
+    errorElement.textContent = errorMessage
+    errorElement.classList.add(enableValidation.errorClass)
   }
   
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, enableValidation) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`)
-    inputElement.classList.remove('popup__input_type_error') 
+    inputElement.classList.remove(enableValidation.inputErrorClass) 
     errorElement.textContent = ""
-    errorElement.classList.remove('popup__input-error_active')
+    errorElement.classList.remove(enableValidation.errorClass)
   }
 
-const checkInputValidity = (formElement, inputElement) => {
-    if (!formInput.validity.valid) {
-      showInputError(formElement, inputElement, formInput.validationMessage)
+const checkInputValidity = (formElement, inputElement, enableValidation) => {
+    if (!inputElement.validity.valid) {
+      showInputError(formElement, inputElement, formInput.validationMessage, enableValidation)
   } else {
-      hideInputError(formElement, inputElement)
+      hideInputError(formElement, inputElement, enableValidation)
     } 
   }
   
-const setEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll('.popup__input'))
-    const buttonElement = formElement.querySelector('.popup__submit')
-    toggleButtonState(inputList, buttonElement)
+const setEventListeners = (formElement, enableValidation) => {
+    const inputList = Array.from(formElement.querySelectorAll(enableValidation.inputSelector))
+    const buttonElement = formElement.querySelector(enableValidation.buttonElement)
+    toggleButtonState(inputList, buttonElement, enableValidation)
         inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', function () {
-                checkInputValidity(formElement, inputElement)
-                toggleButtonState(inputList, buttonElement)
+                checkInputValidity(formElement, inputElement, enableValidation)
+                toggleButtonState(inputList, buttonElement, enableValidation)
         })
     })
 }
 
-const enableValidation = () => {
-    const formList = Array.from(document.querySelectorAll('.popup__form'))
+const enableValidationFunc = (enableValidation) => {
+    const formList = Array.from(document.querySelectorAll(enableValidation.formSelector))
     formList.forEach((formElement) => {
       formElement.addEventListener('submit', function (evt) {
         evt.preventDefault()
       })
+      setEventListeners(formElement, enableValidation);
     })
   }
 
@@ -47,18 +57,14 @@ const hasInvalidInput = (inputList) => {
     })
   }
   
-const toggleButtonState = (inputList, buttonElement) => {
+const toggleButtonState = (inputList, buttonElement, enableValidation) => {
     if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('popup__submit_inactive')
+    buttonElement.classList.add(enableValidation.buttonElement)
+    buttonElement.disabled = true
   } else {
-    buttonElement.classList.remove('popup__submit_inactive')
-  }}
+    buttonElement.classList.remove(enableValidation.buttonElement)
+    buttonElement.disabled = false
+  }
+}
 
-  enableValidation({
-    form: '.popup__form',
-    formInput: '.popup__input',
-    buttonElement: '.popup__submit',
-    inactiveButtonClass: 'popup__submit_inactive',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__input-error_active'
-})
+enableValidationFunc(enableValidation)

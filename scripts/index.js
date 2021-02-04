@@ -31,8 +31,8 @@ const addEditPopupButton = document.querySelector('.profile__add-button')
 const imageOpen = document.querySelector('.element__image')
 const popupMesto = document.querySelector('.popup_type_add-popup')
 const addCardsButton = popupMesto.querySelector('.popup__submit')
-const editPopup = document.querySelector('.popup_type_edit-popup')
-const popup = document.querySelector('.popup')
+const profilePopup = document.querySelector('.popup_type_edit-popup')   //вот попап профиля
+const popup = document.querySelector('.popup')                          //этот попап мне нужен выше
 const closePopupButton = popup.querySelector('.popup__close')
 const closeMestoButton = popupMesto.querySelector('.popup__close')
 const popupImage = document.querySelector('.popup_type_image-popup')
@@ -104,7 +104,7 @@ const openPopup = (popup) => {
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_active')            /* Удаляет класс overlay_active */
-  document.addEventListener('keydown', closeByEscape);
+  document.removeEventListener('keydown', closeByEscape);
 }
 
 const inputName = () =>{
@@ -121,7 +121,7 @@ addEditPopupButton.addEventListener('click', () => {
   openPopup(popupMesto)
 })
 openEditPopupButton.addEventListener('click', () => {
-  openPopup(editPopup)
+  openPopup(profilePopup)
   inputName()
 })
 openPopupImage.addEventListener('click', () => {
@@ -129,7 +129,7 @@ openPopupImage.addEventListener('click', () => {
 })
 
 closePopupButton.addEventListener('click', () => {
-  closePopup(editPopup)
+  closePopup(profilePopup)
 })  /* При нажатии кнопки закрытия(крестик) вызывает функцию togglePopup() */ /* колбэк */
 closeMestoButton.addEventListener('click', () => {
   closePopup(popupMesto)
@@ -160,15 +160,15 @@ function overlayClose(event) {
 formEditPopup.addEventListener('submit', event => {          /* event - функция обработчик стандартного события */
   event.preventDefault()                          /* отмена стандартного события(не перезагрузит страницу) */
   inputInfo()
-  closePopup(editPopup)                         
+  closePopup(profilePopup)                         
 })
 
-const addNewCardCall = document.querySelector('.popup_type_add-popup')
+const addNewCardCall = popupMesto.querySelector('.popup__form')
 
 addNewCardCall.addEventListener('submit', event => {          /* Добавление новой карточки при нажатии на кнопку -Создать-*/
   event.preventDefault()                                     /* отмена стандартного события(не перезагрузит страницу) */  
   addNewCard()                                               //Запуск функции создания карточки
-  const formReset = addNewCardCall.querySelector('.popup__form').reset()                                     /*Сброс заполненых параметров*/                                          /*Сброс заполненых параметров*/
+  addNewCardCall.reset()                                     /*Сброс заполненых параметров*/                                          /*Сброс заполненых параметров*/
 })
 
 function closeByEscape(evt) {
@@ -177,6 +177,3 @@ function closeByEscape(evt) {
     closePopup(openedPopup);
   }
 }
-
-document.addEventListener('keydown', closeByEscape); 
-document.removeEventListener('keydown', closeByEscape); 
