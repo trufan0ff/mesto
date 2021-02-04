@@ -129,7 +129,7 @@ openPopupImage.addEventListener('click', () => {
 
 closePopupButton.addEventListener('click', () => {
   closePopup(profilePopup)
-})  /* При нажатии кнопки закрытия(крестик) вызывает функцию togglePopup() */ /* колбэк */
+})  
 closeMestoButton.addEventListener('click', () => {
   closePopup(popupMesto)
 })
@@ -137,7 +137,7 @@ closeImageButton.addEventListener('click', () => {
   closePopup(popupImage)
 })
 
-popup.addEventListener('click', (event) => {  
+profilePopup.addEventListener('click', (event) => {  
   overlayClose(event)
 })
 
