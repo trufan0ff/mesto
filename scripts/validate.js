@@ -57,14 +57,12 @@ const hasInvalidInput = (inputList) => {
     })
   }
   
-const toggleButtonState = (inputList, buttonElement, settings) => {
-    if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(settings.buttonElement)
-    buttonElement.disabled = true
-  } else {
-    buttonElement.classList.remove(settings.buttonElement)
-    buttonElement.disabled = false
-  }
-}
+  toggleButtonState(hasInvalidInput(inputList), buttonElement, settings)
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", () => {
+      checkInputValidity(formElement, inputElement, settings)
+      toggleButtonState(hasInvalidInput(inputList), buttonElement, settings)
+    })
+  })
 
 enableValidation(settings)
