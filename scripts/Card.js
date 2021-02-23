@@ -1,7 +1,8 @@
 import {
-    imageOpen,
+    popupImage,
     openPopupImage,
     openPopup,
+    popupTitleImage
   } from "./index.js"
 
 export class Card {
@@ -39,10 +40,11 @@ _getTemplate() {
     });
     this._elementPopup.addEventListener("click", (evt) => {
       evt.preventDefault()
-      openPopup(openPopupImage)
+      evt.preventDefault()
+      openPopup(popupImage)
       openPopupImage.src = this._link
       openPopupImage.alt = this._name
-      openPopupImage.textContent = this._name
+      popupTitleImage.textContent = this._name
     })
   }
 
