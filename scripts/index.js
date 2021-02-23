@@ -1,3 +1,5 @@
+import { Card } from "./Card.js"
+import { FormValidator } from "./FormValidator.js"
 
 const initialCards = [
   {
@@ -26,6 +28,15 @@ const initialCards = [
   }
 ]; 
 
+const settings = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  buttonElement: '.popup__submit',
+  inactiveButtonClass: 'popup__submit_inactive',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_visible'
+}
+
 const openEditPopupButton = document.querySelector('.profile__edit-button')
 const addEditPopupButton = document.querySelector('.profile__add-button')
 const imageOpen = document.querySelector('.element__image')
@@ -36,7 +47,7 @@ const closePopupButton = profilePopup.querySelector('.popup__close')
 const closeMestoButton = popupMesto.querySelector('.popup__close')
 const popupImage = document.querySelector('.popup_type_image-popup')
 const closeImageButton = popupImage.querySelector('.popup__close')
-const openPopupImage = popupImage.querySelector('.popup__image')
+export const openPopupImage = popupImage.querySelector('.popup__image')
 const deleteButton = document.querySelector('.element__delete')
 const titleName = document.querySelector('.profile__title')
 const subtitleName = document.querySelector('.profile__subtitle')
@@ -50,65 +61,36 @@ const formEditPopup = document.querySelector('.popup__form')    /* переме�
 const listElements = document.querySelector('.elements')
 const elementHeart = document.querySelector('.element__heart')
 
-const toggleLike = (evt) => {
-  evt.target.classList.toggle('element__heart_type_active')
-}
+initialCards.forEach((item) => {
+  const card = new Card(item, '.item-template')
+  const place = card.getCardElement()
+  elementsList.append(place)
+})
 
-const removeCard = (evt) => {
-  evt.target.closest('.element').remove()
-}
-
-function getCardElement(place) {  
-  const itemTemplate = document.querySelector('.item-template').content
-  const addCard = itemTemplate.querySelector('.element').cloneNode(true)   
-  addCard.querySelector('.element__title').textContent = place.name           
-  const addCardImage = addCard.querySelector('.element__image')
-  addCardImage.src = place.link
-  addCardImage.alt = place.name
-  addCard.querySelector('.element__heart').addEventListener('click', toggleLike)
-  addCard.querySelector('.element__delete').addEventListener('click', removeCard)   
-  addCardImage.addEventListener('click', () => {
-    handlePreviewPicture(place)
-  });
-  return addCard                                             
-}
-
-const handlePreviewPicture = (place) => {
-    openPopup(popupImage)
-    openPopupImage.src = place.link
-    openPopupImage.alt = place.name;
-    popupTitleImage.textContent = place.name
-};
-
-function render() {
-  const renderElement = initialCards.map(getCardElement)
-  listElements.append(...renderElement)
-}
-
-function addNewCard(evt){
+function addNewCard(evt) {
+  evt.preventDefault()
   const data = {
     name: popupNameMesto.value,
     link: popupLink.value
   }
-  const newElement = getCardElement(data)
+  const newElement = new Card(data, '.item-template')
   listElements.prepend(newElement)
   closePopup(popupMesto)
 }
-render();
 
-const openPopup = (popup) => {
+export function openPopup(popup) {
   popup.classList.add('popup_active')            /* добавляет класс overlay_active */
-  document.addEventListener('keydown', closeByEscape);
+  document.addEventListener('keydown', closeByEscape)
 }
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_active')            /* Удаляет класс overlay_active */
-  document.removeEventListener('keydown', closeByEscape);
+  document.removeEventListener('keydown', closeByEscape)
 }
 
 const inputName = () =>{
-  popupActivity.value = subtitleName.textContent; /* берет из профиля значение субтитл и записывает его в форму хобби */
-  popupName.value = titleName.textContent; /* берет из профиля значение титл и записывает его в форму Имя */
+  popupActivity.value = subtitleName.textContent /* берет из профиля значение субтитл и записывает его в форму хобби */
+  popupName.value = titleName.textContent /* берет из профиля значение титл и записывает его в форму Имя */
 }
 
 const inputInfo = () => {
@@ -176,3 +158,8 @@ function closeByEscape(evt) {
     closePopup(openedPopup);
   }
 }
+
+formsList.forEach((formElement) => {
+  const formValidator = new FormValidator(settings, formElement);
+  formValidator.enableValidation();
+})
