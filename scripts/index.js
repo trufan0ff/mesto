@@ -39,7 +39,7 @@ const settings = {
 
 const openEditPopupButton = document.querySelector('.profile__edit-button')
 const addEditPopupButton = document.querySelector('.profile__add-button')
-const imageOpen = document.querySelector('.element__image')
+export const imageOpen = document.querySelector('.element__image')
 const popupMesto = document.querySelector('.popup_type_add-popup')
 const addCardsButton = popupMesto.querySelector('.popup__submit')
 const profilePopup = document.querySelector('.popup_type_edit-popup')  
@@ -57,14 +57,15 @@ const popupName = document.querySelector('.popup__input_type_name')
 const popupActivity = document.querySelector('.popup__input_type_activity')
 const popupNameMesto = popupMesto.querySelector('.popup__input_type_mesto-name')
 const popupLink = popupMesto.querySelector('.popup__input_type_link')
-const formEditPopup = document.querySelector('.popup__form')    /* переменная формы */
+const formEditPopup = profilePopup.querySelector('.popup__form')    /* переменная формы профиля*/
+const formEditPopups = document.querySelectorAll('.popup__form')
 const listElements = document.querySelector('.elements')
 const elementHeart = document.querySelector('.element__heart')
 
 initialCards.forEach((item) => {
   const card = new Card(item, '.item-template')
   const place = card.getCardElement()
-  elementsList.append(place)
+  listElements.append(place)
 })
 
 function addNewCard(evt) {
@@ -159,7 +160,7 @@ function closeByEscape(evt) {
   }
 }
 
-formsList.forEach((formElement) => {
+formEditPopups.forEach((formElement) => {
   const formValidator = new FormValidator(settings, formElement);
   formValidator.enableValidation();
 })

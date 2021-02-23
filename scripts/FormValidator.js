@@ -1,11 +1,11 @@
 export class FormValidator {
     constructor(settings, formElement) {
-        this._validateSettings = settings
+        this._settings = settings
         this._formElement = formElement
     }
 
     _getErrorElement(inputElement) {
-        return this._formElement.querySelector(`#${inputElement.id}-error`);
+        return this._formElement.querySelector(`#${inputElement.id}-error`)
       }
     
     _showInputError(inputElement, errorMessage, errorElement) {
@@ -33,9 +33,9 @@ export class FormValidator {
       }
 
     _toggleButtonState(formElement, submitButton, inactiveButtonClass) {
-        const hasErrors = !formElement.checkValidity();
-        submitButton.disabled = hasErrors;
-        submitButton.classList.toggle(inactiveButtonClass, hasErrors);
+        const hasErrors = !formElement.checkValidity()
+        submitButton.disabled = hasErrors
+        submitButton.classList.toggle(inactiveButtonClass, hasErrors)
       }
       
     _setEventListeners() {
