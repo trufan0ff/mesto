@@ -75,7 +75,8 @@ function addNewCard(evt) {
     link: popupLink.value
   }
   const newElement = new Card(data, '.item-template')
-  listElements.prepend(newElement)
+  const newPlace = newElement.getCardElement();
+  listElements.prepend(newPlace)
   closePopup(popupMesto)
 }
 

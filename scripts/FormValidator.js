@@ -16,8 +16,8 @@ export class FormValidator {
       
     _hideInputError(inputElement, errorElement) {
         inputElement.classList.remove(this._settings.inputErrorClass) 
-        errorElement.textContent = ""
         errorElement.classList.remove(this._settings.errorClass)
+        errorElement.textContent = ""
       }
     
     _checkInputValidity(inputElement) {
@@ -32,10 +32,10 @@ export class FormValidator {
         } 
       }
 
-    _toggleButtonState(formElement, submitButton, inactiveButtonClass) {
-        const hasErrors = !formElement.checkValidity()
-        submitButton.disabled = hasErrors
-        submitButton.classList.toggle(inactiveButtonClass, hasErrors)
+    _toggleButtonState() {
+        const hasErrors = !this._formElement.checkValidity()
+        this._buttonElement.disabled = hasErrors
+        this._buttonElement.classList.toggle(this._settings.inactiveButtonClass, hasErrors)
       }
       
     _setEventListeners() {
@@ -43,17 +43,17 @@ export class FormValidator {
         this._buttonElement = this._formElement.querySelector(this._settings.buttonElement)
         this._toggleButtonState(this._formElement, this._buttonElement, this._settings.inactiveButtonClass)
             this._inputList.forEach((inputElement) => {
-                inputElement.addEventListener('input', function () {
+                inputElement.addEventListener('input',  (evt) => {
                     this._checkInputValidity(inputElement)
-                    this._toggleButtonState(buttonElement)
             })
         })
-        this._formElement.addEventListener("input", () =>
+        this._formElement.addEventListener("input", () => {
             this._toggleButtonState(
-            this._formElement,
-            this._buttonElement,
-            this._validateSettings.inactiveButtonClass
-      ))}
+              this._formElement,
+              this._buttonElement,
+              this._settings.inactiveButtonClass
+      )}
+    )}
     
     _hasInvalidInput() {
         return this._inputList.some((inputElement) => {
