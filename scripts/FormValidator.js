@@ -1,20 +1,22 @@
 export class FormValidator {
-    constructor(settings, formElement) {
-        this._settings = settings
-        this._formElement = formElement
+    constructor(settings, formSelector) {
+        this._settings = settings,
+        this._formElement = formSelector
     }
 
     _getErrorElement(inputElement) {
-        return this._formElement.querySelector(`#${inputElement.id}-error`)
+        return this._formElement.querySelector(`.${inputElement.id}-error`)
       }
     
-    _showInputError(inputElement, errorMessage, errorElement) {
+    _showInputError(inputElement, errorMessage) {
+      const errorElement = this._getErrorElement(inputElement)
         inputElement.classList.add(this._settings.inputErrorClass)
         errorElement.textContent = errorMessage
         errorElement.classList.add(this._settings.errorClass)
       }
       
-    _hideInputError(inputElement, errorElement) {
+    _hideInputError(inputElement) {
+        const errorElement = this._getErrorElement(inputElement)
         inputElement.classList.remove(this._settings.inputErrorClass) 
         errorElement.classList.remove(this._settings.errorClass)
         errorElement.textContent = ""
@@ -28,7 +30,7 @@ export class FormValidator {
                 inputElement.validationMessage,
                 errorElement)
       } else {
-          this._hideInputError(inputElement, errorElement)
+          this._hideInputError(inputElement)
         } 
       }
 

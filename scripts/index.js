@@ -68,8 +68,8 @@ initialCards.forEach((item) => {
   listElements.append(place)
 })
 
-function addNewCard(evt) {
-  evt.preventDefault()
+function addNewCard() {
+  
   const data = {
     name: popupNameMesto.value,
     link: popupLink.value
