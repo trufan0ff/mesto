@@ -40,11 +40,11 @@ const settings = {
 const openEditPopupButton = document.querySelector('.profile__edit-button')
 const addEditPopupButton = document.querySelector('.profile__add-button')
 export const imageOpen = document.querySelector('.element__image')
-const popupMesto = document.querySelector('.popup_type_add-popup')
-const addCardsButton = popupMesto.querySelector('.popup__submit')
+const popupPlace = document.querySelector('.popup_type_add-popup')
+const addCardsButton = popupPlace.querySelector('.popup__submit')
 const profilePopup = document.querySelector('.popup_type_edit-popup')  
 const closePopupButton = profilePopup.querySelector('.popup__close')
-const closeMestoButton = popupMesto.querySelector('.popup__close')
+const closePlaceButton = popupPlace.querySelector('.popup__close')
 export const popupImage = document.querySelector('.popup_type_image-popup')
 const closeImageButton = popupImage.querySelector('.popup__close')
 export const openPopupImage = popupImage.querySelector('.popup__image')
@@ -55,8 +55,8 @@ const titleImageMesto = document.querySelector('.element__title')
 export const popupTitleImage = popupImage.querySelector('.popup__image-title')
 const popupName = document.querySelector('.popup__input_type_name')
 const popupActivity = document.querySelector('.popup__input_type_activity')
-const popupNameMesto = popupMesto.querySelector('.popup__input_type_mesto-name')
-const popupLink = popupMesto.querySelector('.popup__input_type_link')
+const popupNamePlace = popupPlace.querySelector('.popup__input_type_mesto-name')
+const popupLink = popupPlace.querySelector('.popup__input_type_link')
 const formEditPopup = profilePopup.querySelector('.popup__form')    /* переменная формы профиля*/
 const formEditPopups = document.querySelectorAll('.popup__form')
 const listElements = document.querySelector('.elements')
@@ -71,13 +71,13 @@ initialCards.forEach((item) => {
 function addNewCard() {
   
   const data = {
-    name: popupNameMesto.value,
+    name: popupNamePlace.value,
     link: popupLink.value
   }
   const newElement = new Card(data, '.item-template')
   const newPlace = newElement.getCardElement();
   listElements.prepend(newPlace)
-  closePopup(popupMesto)
+  closePopup(popupPlace)
 }
 
 export function openPopup(popup) {
@@ -101,7 +101,7 @@ const inputInfo = () => {
 }
 
 addEditPopupButton.addEventListener('click', () => {
-  openPopup(popupMesto)
+  openPopup(popupPlace)
 })
 openEditPopupButton.addEventListener('click', () => {
   openPopup(profilePopup)
@@ -114,26 +114,26 @@ openPopupImage.addEventListener('click', () => {
 closePopupButton.addEventListener('click', () => {
   closePopup(profilePopup)
 })  
-closeMestoButton.addEventListener('click', () => {
-  closePopup(popupMesto)
+closePlaceButton.addEventListener('click', () => {
+  closePopup(popupPlace)
 })
 closeImageButton.addEventListener('click', () => {
   closePopup(popupImage)
 })
 
 profilePopup.addEventListener('click', (event) => {  
-  overlayClose(event)
+  handleCloseByOverlay(event)
 })
 
-popupMesto.addEventListener('click', (event) => {  
-  overlayClose(event)
+popupPlace.addEventListener('click', (event) => {  
+  handleCloseByOverlay(event)
 })
 
 popupImage.addEventListener('click', (event) => {  
-  overlayClose(event)
+  handleCloseByOverlay(event)
 })
 
-function overlayClose(event) {
+function handleCloseByOverlay(event) {
   const activePopup = document.querySelector('.popup_active')      /* Клик по оверлею закрывает форму */
     if (event.target === event.currentTarget) {     /* определяет куда нажал пользователь(непонятная магия) */
       closePopup(activePopup)
@@ -146,12 +146,13 @@ formEditPopup.addEventListener('submit', event => {          /* event - функ
   closePopup(profilePopup)                         
 })
 
-const addNewCardCall = popupMesto.querySelector('.popup__form')
+const addNewCardCall = popupPlace.querySelector('.popup__form')
 
 addNewCardCall.addEventListener('submit', event => {          /* Добавление новой карточки при нажатии на кнопку -Создать-*/
   event.preventDefault()                                     /* отмена стандартного события(не перезагрузит страницу) */  
   addNewCard()                                               //Запуск функции создания карточки
-  addNewCardCall.reset()                                     /*Сброс заполненых параметров*/                                          /*Сброс заполненых параметров*/
+  addNewCardCall.reset()                                     /*Сброс заполненых параметров*/                                          
+  addCardsButton.classList.add('popup__submit_inactive')
 })
 
 function closeByEscape(evt) {

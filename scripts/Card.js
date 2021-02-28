@@ -40,7 +40,6 @@ _getTemplate() {
     });
     this._elementPopup.addEventListener("click", (evt) => {
       evt.preventDefault()
-      evt.preventDefault()
       openPopup(popupImage)
       openPopupImage.src = this._link
       openPopupImage.alt = this._name
