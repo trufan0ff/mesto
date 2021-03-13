@@ -3,7 +3,7 @@ import {
     openPopupImage,
     openPopup,
     popupTitleImage
-  } from "./index.js"
+  } from "../index.js"
 
 export class Card {
     constructor(data, placeTemplate) {

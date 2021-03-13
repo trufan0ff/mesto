@@ -1,5 +1,10 @@
-import { Card } from "./Card.js"
-import { FormValidator } from "./FormValidator.js"
+import { Card } from './scripts/Card.js'
+import { FormValidator } from './scripts/FormValidator.js'
+import './pages/index.css';
+import Section from './scripts/Section'
+import PopupWithForm from './scripts/PopupWithForm.js'
+import PopupWithImage from './scripts/PopupWithImage.js'
+import UserInfo from './scripts/UserInfo.js'
 
 const initialCards = [
   {
@@ -61,6 +66,7 @@ const formEditPopup = profilePopup.querySelector('.popup__form')    /* пере�
 const formEditPopups = document.querySelectorAll('.popup__form')
 const listElements = document.querySelector('.elements')
 const elementHeart = document.querySelector('.element__heart')
+export const popup = document.querySelector('.popup')
 
 initialCards.forEach((item) => {
   const card = new Card(item, '.item-template')
@@ -133,12 +139,7 @@ popupImage.addEventListener('click', (event) => {
   handleCloseByOverlay(event)
 })
 
-function handleCloseByOverlay(event) {
-  const activePopup = document.querySelector('.popup_active')      /* Клик по оверлею закрывает форму */
-    if (event.target === event.currentTarget) {     /* определяет куда нажал пользователь(непонятная магия) */
-      closePopup(activePopup)
-    }
-}
+
 
 formEditPopup.addEventListener('submit', event => {          /* event - функция обработчик стандартного события */
   event.preventDefault()                          /* отмена стандартного события(не перезагрузит страницу) */
@@ -154,13 +155,6 @@ addNewCardCall.addEventListener('submit', event => {          /* Добавле�
   addNewCardCall.reset()                                     /*Сброс заполненых параметров*/                                          
   addCardsButton.classList.add('popup__submit_inactive')
 })
-
-function closeByEscape(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_active')
-    closePopup(openedPopup);
-  }
-}
 
 formEditPopups.forEach((formElement) => {
   const formValidator = new FormValidator(settings, formElement);
