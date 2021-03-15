@@ -3,17 +3,18 @@ import {
     openPopupImage,
     openPopup,
     popupTitleImage
-  } from "../index.js"
+  } from "../pages/index.js"
 
 export class Card {
-    constructor(data, placeTemplate) {
-        this._name = data.name
-        this._link = data.link
-        this._placeTemplate = placeTemplate
-}
+  constructor(data, cardSelector, handleCardClick) {
+    this._name = data.name;
+    this._src = data.src;
+    this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
+  }
 
 _getTemplate() {
-    const place = document.querySelector(this._placeTemplate).content.querySelector(".element").cloneNode(true)
+  const place = document.querySelector('.item-template').content.querySelector(".element").cloneNode(true)
     return place
   }
 
@@ -40,10 +41,7 @@ _getTemplate() {
     });
     this._elementPopup.addEventListener("click", (evt) => {
       evt.preventDefault()
-      openPopup(popupImage)
-      openPopupImage.src = this._link
-      openPopupImage.alt = this._name
-      popupTitleImage.textContent = this._name
+      this._handleCardClick(this._name, this._link)
     })
   }
 

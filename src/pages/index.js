@@ -1,10 +1,6 @@
-import { Card } from './scripts/Card.js'
-import { FormValidator } from './scripts/FormValidator.js'
-import './pages/index.css';
-import Section from './scripts/Section'
-import PopupWithForm from './scripts/PopupWithForm.js'
-import PopupWithImage from './scripts/PopupWithImage.js'
-import UserInfo from './scripts/UserInfo.js'
+import { Card } from '../components/Card.js'
+import { FormValidator } from '../components/FormValidator.js'
+import '../pages/index.css';
 
 const initialCards = [
   {
@@ -75,7 +71,6 @@ initialCards.forEach((item) => {
 })
 
 function addNewCard() {
-  
   const data = {
     name: popupNamePlace.value,
     link: popupLink.value
@@ -105,42 +100,6 @@ const inputInfo = () => {
     titleName.textContent = popupName.value
     subtitleName.textContent = popupActivity.value
 }
-
-addEditPopupButton.addEventListener('click', () => {
-  openPopup(popupPlace)
-})
-openEditPopupButton.addEventListener('click', () => {
-  openPopup(profilePopup)
-  inputName()
-})
-openPopupImage.addEventListener('click', () => {
-  openPopup(popupImage)
-})
-
-closePopupButton.addEventListener('click', () => {
-  closePopup(profilePopup)
-})  
-closePlaceButton.addEventListener('click', () => {
-  closePopup(popupPlace)
-})
-closeImageButton.addEventListener('click', () => {
-  closePopup(popupImage)
-})
-
-profilePopup.addEventListener('click', (event) => {  
-  handleCloseByOverlay(event)
-})
-
-popupPlace.addEventListener('click', (event) => {  
-  handleCloseByOverlay(event)
-})
-
-popupImage.addEventListener('click', (event) => {  
-  handleCloseByOverlay(event)
-})
-
-
-
 formEditPopup.addEventListener('submit', event => {          /* event - функция обработчик стандартного события */
   event.preventDefault()                          /* отмена стандартного события(не перезагрузит страницу) */
   inputInfo()
@@ -160,3 +119,9 @@ formEditPopups.forEach((formElement) => {
   const formValidator = new FormValidator(settings, formElement);
   formValidator.enableValidation();
 })
+
+export function handleCardClick(name, link) {
+  imagePopupPicture.src = link
+  imagePopupCaption.textContent = name
+  openPopup(imagePopup)
+}
