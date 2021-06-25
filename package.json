@@ -1,18 +1,28 @@
 {
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "Данная работа необходима для закрепления знаний первого спринта курса \"JavaScript — непростые концепции\". \r Сайт представляет из себя одностраничный лендинг с адаптацией контента под различные разрешения экранов. \r В текущем проекте реализован рефакторинг кода согласно концепциям ООП (созданы классы, код разбит на модули).",
+  "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trufan0ff/mesto.git"
+    "url": "git+https://github.com/Kotezh/mesto.git"
   },
-  "author": "Viktor Trufanov",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/trufan0ff/mesto/issues"
+    "url": "https://github.com/Kotezh/mesto/issues"
   },
-  "homepage": "https://github.com/trufan0ff/mesto#readme",
+  "homepage": "https://github.com/Kotezh/mesto#readme",
+  "dependencies": {
+    "core-js": "^3.9.1",
+    "html-webpack-plugin": "^5.3.0",
+    "webpack": "^5.24.4"
+  },
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.9",
@@ -22,15 +32,9 @@
     "css-loader": "^5.1.1",
     "cssnano": "^4.1.10",
     "html-loader": "^2.1.1",
-    "html-webpack-plugin": "^5.2.0",
     "mini-css-extract-plugin": "^1.3.9",
     "postcss-loader": "^5.1.0",
-    "style-loader": "^2.0.0",
-    "webpack": "^5.24.3",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
-  },
-  "dependencies": {
-    "core-js": "^3.9.1"
   }
 }
