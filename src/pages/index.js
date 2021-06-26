@@ -122,7 +122,7 @@ formEditPopups.forEach((formElement) => {
 })
 
 export function handleCardClick(name, link) {
-  imagePopupPicture.src = link
-  imagePopupCaption.textContent = name
+  popupLink.src = link
+  popupNamePlace.textContent = name
   openPopup(imagePopup)
 }

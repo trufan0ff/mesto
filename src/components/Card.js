@@ -34,7 +34,7 @@ _getTemplate() {
     });
     this._elementPopup.addEventListener("click", (evt) => {
       evt.preventDefault()
-      this._handleCardClick(this._name, this._link)
+      this._handleCardClick(this._name, this._link);
     })
   }
 
