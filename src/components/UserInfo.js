@@ -1,3 +1,5 @@
+/* Класс UserInfo отвечает за управление отображением информации о пользователе на странице */
+
 export default class UserInfo {
     constructor({titleName, subtitleName}) {
         this._titleName = document.querySelector(titleName)

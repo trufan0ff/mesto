@@ -1,6 +1,8 @@
 import FormValidator from '../components/FormValidator.js';
-import Card from '../components/Card.js'
-
+import Card from '../components/Card.js';
+import Popup from '../components/Popup.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import PopupWithImage from '../components/PopupWithImage.js';
 import '../pages/index.css';
 
 const initialCards = [
@@ -71,6 +73,16 @@ initialCards.forEach((item) => {
   listElements.append(place)
 })
 
+const popupImageClass = new PopupWithImage();
+openPopupImage.addEventListener('click', () => {
+  popupImageClass.openPopup();
+})
+
+const newCardPopup = new PopupWithForm({});
+openEditPopupButton.addEventListener('click', () => {
+  newCardPopup.openPopup();
+});
+
 function addNewCard() {
   const data = {
     name: popupNamePlace.value,
@@ -79,18 +91,18 @@ function addNewCard() {
   const newElement = new Card(data, '.item-template')
   const newPlace = newElement.getCardElement();
   listElements.prepend(newPlace)
-  closePopup(popupPlace)
+  popupClose.closePopup(popupPlace)
 }
 
-export function openPopup(popup) {
-  popup.classList.add('popup_active')            /* добавляет класс overlay_active */
-  document.addEventListener('keydown', closeByEscape)
-}
+// export function openPopup(popup) {
+//   popup.classList.add('popup_active')            /* добавляет класс overlay_active */
+//   document.addEventListener('keydown', closeByEscape)
+// }
 
-const closePopup = (popup) => {
-  popup.classList.remove('popup_active')            /* Удаляет класс overlay_active */
-  document.removeEventListener('keydown', closeByEscape)
-}
+// const closePopup = (popup) => {
+//   popup.classList.remove('popup_active')            /* Удаляет класс overlay_active */
+//   document.removeEventListener('keydown', closeByEscape)
+// }
 
 const inputName = () =>{
   popupActivity.value = subtitleName.textContent /* берет из профиля значение субтитл и записывает его в форму хобби */
@@ -100,11 +112,15 @@ const inputName = () =>{
 const inputInfo = () => {
     titleName.textContent = popupName.value
     subtitleName.textContent = popupActivity.value
+
 }
+
+const popupClose = new Popup();
+
 formEditPopup.addEventListener('submit', event => {          /* event - функция обработчик стандартного события */
   event.preventDefault()                          /* отмена стандартного события(не перезагрузит страницу) */
   inputInfo()
-  closePopup(profilePopup)                         
+  popupClose.closePopup()                         
 })
 
 const addNewCardCall = popupPlace.querySelector('.popup__form')
@@ -124,5 +140,5 @@ formEditPopups.forEach((formElement) => {
 export function handleCardClick(name, link) {
   popupLink.src = link
   popupNamePlace.textContent = name
-  openPopup(imagePopup)
+  popupImageClass.openPopup(this.popup)
 }

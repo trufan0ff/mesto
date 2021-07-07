@@ -1,3 +1,5 @@
+/* класс PopupWithForm который открывает popup с формой*/
+
 import Popup from "./Popup.js"
 
 export default class PopupWithForm extends Popup {

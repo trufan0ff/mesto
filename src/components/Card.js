@@ -1,7 +1,7 @@
 export default class Card {
   constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
-    this._src = data.src;
+    this._src = data.link;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
   }
@@ -33,8 +33,7 @@ _getTemplate() {
       this._removeCard()
     });
     this._elementPopup.addEventListener("click", (evt) => {
-      evt.preventDefault()
-      this._handleCardClick(this._name, this._link);
+      this._handleCardClick;
     })
   }
 
@@ -43,6 +42,6 @@ _getTemplate() {
   }
 
   _removeCard(evt) {
-    this._element.querySelector(".element__delete").closest(".element").remove()
+    this._element.closest(".element").remove()
   }
 }

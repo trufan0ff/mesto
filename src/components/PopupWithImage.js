@@ -1,3 +1,5 @@
+/* класс PopupWithImage который открывает popup с картинкой*/
+
 import Popup from "./Popup.js"
 
 export default class PopupWithImage extends Popup {
@@ -8,10 +10,10 @@ export default class PopupWithImage extends Popup {
         this._popupTitleImage = this._popup.querySelector('.popup__image-title')
     }
     
-    openPopup({name, link}) {
+    openPopup(name, link) {
         this.openPopup(_popupImage)
-        this._openPopupImage.src = link
-        this._openPopupImage.alt = name
-        this._popupTitleImage.textContent = name
+        this._openPopupImage.src = this.link
+        this._openPopupImage.alt = this.name
+        this._popupTitleImage.textContent = this.name
     }
 }

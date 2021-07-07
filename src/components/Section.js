@@ -1,4 +1,4 @@
-
+/* Класс Section, который отвечает за отрисовку элементов на странице*/
 
 export default class Section {
     constructor({ items, renderer }, listElements) {
