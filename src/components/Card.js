@@ -1,3 +1,5 @@
+import { handleCardClick } from "../pages/index.js";
+
 export default class Card {
   constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
@@ -16,7 +18,7 @@ _getTemplate() {
     this._setEventListeners()
     this._elementImage = this._element.querySelector(".element__image")
     this._elementTitle = this._element.querySelector(".element__title")
-    this._elementImage.src = this._link
+    this._elementImage.src = this._src
     this._elementImage.alt = this._name
     this._elementTitle.textContent = this._name
     return this._element
@@ -33,7 +35,7 @@ _getTemplate() {
       this._removeCard()
     });
     this._elementPopup.addEventListener("click", (evt) => {
-      this._handleCardClick;
+      handleCardClick(this._name, this._src)
     })
   }
 
@@ -44,4 +46,5 @@ _getTemplate() {
   _removeCard(evt) {
     this._element.closest(".element").remove()
   }
+  
 }

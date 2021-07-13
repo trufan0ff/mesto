@@ -48,9 +48,7 @@ const popupPlace = document.querySelector('.popup_type_add-popup')
 const addCardsButton = popupPlace.querySelector('.popup__submit')
 const profilePopup = document.querySelector('.popup_type_edit-popup')  
 const closePopupButton = profilePopup.querySelector('.popup__close')
-const closePlaceButton = popupPlace.querySelector('.popup__close')
 export const popupImage = document.querySelector('.popup_type_image-popup')
-const closeImageButton = popupImage.querySelector('.popup__close')
 export const openPopupImage = popupImage.querySelector('.popup__image')
 const deleteButton = document.querySelector('.element__delete')
 const titleName = document.querySelector('.profile__title')
@@ -68,41 +66,38 @@ const elementHeart = document.querySelector('.element__heart')
 export const popup = document.querySelector('.popup')
 
 initialCards.forEach((item) => {
-  const card = new Card(item, '.item-template')
+  const card = new Card(item, '.item-template', handleCardClick)
   const place = card.getCardElement()
   listElements.append(place)
 })
 
-const popupImageClass = new PopupWithImage();
-openPopupImage.addEventListener('click', () => {
-  popupImageClass.openPopup();
+const popupImageClass = new PopupWithImage(openPopupImage);
+popupImage.addEventListener('click', () => {
+  popupImageClass.openPopup()
 })
 
-const newCardPopup = new PopupWithForm({});
+const newCardPopupAdd = new PopupWithForm(popupPlace);
+addEditPopupButton.addEventListener('click', () => {
+  newCardPopupAdd.openPopup();
+});
+
+const newCardPopup = new PopupWithForm(profilePopup);
 openEditPopupButton.addEventListener('click', () => {
   newCardPopup.openPopup();
 });
 
-function addNewCard() {
+const addNewCard = () => {
   const data = {
     name: popupNamePlace.value,
     link: popupLink.value
   }
-  const newElement = new Card(data, '.item-template')
+  const newElement = new Card(data, '.item-template', handleCardClick)
   const newPlace = newElement.getCardElement();
   listElements.prepend(newPlace)
-  popupClose.closePopup(popupPlace)
+  popupClose.closePopup()
 }
 
-// export function openPopup(popup) {
-//   popup.classList.add('popup_active')            /* добавляет класс overlay_active */
-//   document.addEventListener('keydown', closeByEscape)
-// }
 
-// const closePopup = (popup) => {
-//   popup.classList.remove('popup_active')            /* Удаляет класс overlay_active */
-//   document.removeEventListener('keydown', closeByEscape)
-// }
 
 const inputName = () =>{
   popupActivity.value = subtitleName.textContent /* берет из профиля значение субтитл и записывает его в форму хобби */
@@ -128,6 +123,7 @@ const addNewCardCall = popupPlace.querySelector('.popup__form')
 addNewCardCall.addEventListener('submit', event => {          /* Добавление новой карточки при нажатии на кнопку -Создать-*/
   event.preventDefault()                                     /* отмена стандартного события(не перезагрузит страницу) */  
   addNewCard()                                               //Запуск функции создания карточки
+  popupClose.closePopup() 
   addNewCardCall.reset()                                     /*Сброс заполненых параметров*/                                          
   addCardsButton.classList.add('popup__submit_inactive')
 })
@@ -137,8 +133,7 @@ formEditPopups.forEach((formElement) => {
   formValidator.enableValidation();
 })
 
-export function handleCardClick(name, link) {
-  popupLink.src = link
-  popupNamePlace.textContent = name
-  popupImageClass.openPopup(this.popup)
+
+export const handleCardClick = () => {
+  popupImageClass.openPopup()
 }

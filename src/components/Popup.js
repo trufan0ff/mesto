@@ -7,12 +7,12 @@ export default class Popup {
         this._handleEscClose = this._handleEscClose.bind(this)
     }
 
-    openPopup(popup) {
+    openPopup() {
         this._popup.classList.add('popup_active')            /* добавляет класс popup_active */
         document.addEventListener('keydown', this._handleEscClose)
     }
 
-    closePopup(popup) {
+    closePopup() {
         this._popup.classList.remove('popup_active')            /* Удаляет класс popup_active */
         document.removeEventListener('keydown', this._handleEscClose)
     }
@@ -25,17 +25,20 @@ export default class Popup {
 
     _handleCloseByOverlay(event) {
           if (event.target === event.currentTarget) {/* определяет куда нажал пользователь(непонятная магия) */
-            this.closePopup(this._popap)
+            this.closePopup(this._popup)
         }
     }
 
     setEventListeners(){
         const close = this._popup.querySelector(".popup__close");
         close.addEventListener("click", () => {
-        this.closePopup()
+            this.closePopup()
         });
+        this._popup.addEventListener('keydown', (evt) => {
+            this._handleEscClose(evt)
+        })
         this._popup.addEventListener('click', (evt) => {
-        this._handleEscClose(evt)
+            this._handleCloseByOverlay(evt)
         })
     }
 }
